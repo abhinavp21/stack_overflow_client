@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useReducer, useState } from "react";
-import "../styles.css";
-import e from "express";
+import "../app.css";
 
 function AskQuestion() {
   const [askQuestion, setAskQuestion] = useState({
@@ -10,13 +9,14 @@ function AskQuestion() {
     body: "",
     tags: "",
   });
-  function handleSubmit() {
+  function handleSubmit(e) {
     e.preventDefault();
     const newAskQuestion = {
       title: askQuestion.title,
       body: askQuestion.body,
       tags: askQuestion.tags,
     };
+    console.log(newAskQuestion);
     axios
       .post("http://localhost:5000/questions/ask", newAskQuestion)
       .then((res) => console.log(res.data));
@@ -30,7 +30,6 @@ function AskQuestion() {
   function handleChange(e) {
     const field = e.target.name;
     const value = e.target.value;
-    console.log(askQuestion, field, value);
     setAskQuestion(() => {
       return { ...askQuestion, [field]: value };
     });

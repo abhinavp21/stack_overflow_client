@@ -5,7 +5,8 @@ import Navbar from "./components/navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
 import Sidebar from "./components/sidebar";
-// import AskQuestion from "./components/AskQuestion";
+import AskQuestion from "./components/AskQuestion";
+import QuestionList from "./components/questionList";
 function App() {
   return (
     <Router>
@@ -16,16 +17,19 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          {/* <Route path="/questions/ask">
+          <Route path="/questions/ask">
             <AskQuestion />
-          </Route> */}
+          </Route>
           {/* <Route path="/about">
             <About />
           </Route>
+          */}
+
           <Route path="/questions">
             <QuestionsList />
           </Route>
-          <Route path="/questions/:id">
+
+          {/* <Route path="/questions/:id">
             <SingleQuestion />
           </Route>
           <Route path="*">

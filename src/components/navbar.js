@@ -34,7 +34,7 @@ function Navbar() {
           <form className="search-form mx-auto w-50">
             <img src={icon} alt="" />
             <input
-              class="form-control"
+              className="form-control"
               type="search"
               placeholder="Search"
               aria-label="Search"

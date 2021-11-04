@@ -6,7 +6,7 @@ function Home() {
     <div className="home-container">
       <div className="heading">
         <h3>Home</h3>
-        <Link className="btn" to="questions/ask">
+        <Link className="btn" to="/questions/ask">
           Ask Question
         </Link>
       </div>
