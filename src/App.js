@@ -24,9 +24,8 @@ function App() {
             <About />
           </Route>
           */}
-
           <Route path="/questions">
-            <QuestionsList />
+            <QuestionList />
           </Route>
 
           {/* <Route path="/questions/:id">
