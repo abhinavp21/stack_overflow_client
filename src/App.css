@@ -1,6 +1,11 @@
 /* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+}
 .search-form {
   position: relative;
+  width: 70%;
 }
 .search-form input {
   padding-left: 25px;
@@ -16,9 +21,20 @@
 }
 /* sidebar */
 .sidebar {
-  /* position: fixed; */
-  width: 200px;
+  position: sticky;
+  top: 744px;
+  /* position: relative; */
+  width: 150px;
+  height: 1000px;
   text-transform: capitalize;
+}
+.sidebar hr {
+  /* position: absolute; */
+  position: relative;
+  transform: rotate(90deg);
+  width: 900px;
+  top: 430px;
+  right: 315px;
 }
 .sidebar-link {
   margin: 20px 10px;
@@ -27,6 +43,11 @@
   margin-top: 10px;
 }
 /*  */
+@media screen and (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+}
 .home-container {
   width: 60%;
 }
@@ -63,6 +84,44 @@
   /*   */
 }
 /*  */
+.questionList h2 {
+  padding: 10px;
+}
+/* .question {
+} */
+#side-count {
+  padding: 0 20px;
+}
+#side-count h5 {
+  padding-left: 26px;
+  margin-bottom: 0;
+}
+#votes-p {
+  padding-left: 9px;
+}
 .askQuestionConatiner {
   width: 60%;
+}
+/*  */
+.singleQuestionContainer {
+  margin-left: 10px;
+}
+.singleQuestionHead {
+  margin-top: 10px;
+  justify-content: center;
+  position: relative;
+}
+.singleQuestionBody {
+  display: flex;
+}
+.singleQuestionBody aside {
+  width: 80px;
+}
+.vote-btn {
+  border: none;
+  background-color: white;
+}
+span {
+  margin-left: 12px;
+  font-size: 1.2rem;
 }

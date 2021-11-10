@@ -4,6 +4,7 @@ import "../app.css";
 function Sidebar() {
   return (
     <div className="sidebar">
+      <hr />
       <div className="sidebar-link">
         <Link to="/">home</Link>
       </div>

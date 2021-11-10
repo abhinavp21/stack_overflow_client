@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useReducer, useState } from "react";
+import { useState } from "react";
 import "../app.css";
 
 function AskQuestion() {
@@ -9,9 +9,11 @@ function AskQuestion() {
     body: "",
     tags: "",
   });
+  //
   function handleSubmit(e) {
     e.preventDefault();
     const newAskQuestion = {
+      qid: new Date().getTime(),
       title: askQuestion.title,
       body: askQuestion.body,
       tags: askQuestion.tags,
@@ -50,6 +52,7 @@ function AskQuestion() {
               type="text"
               onChange={handleChange}
               value={askQuestion.title}
+              required
             />
           </div>
           <div className="form-element">
@@ -62,6 +65,7 @@ function AskQuestion() {
               rows="10"
               onChange={handleChange}
               value={askQuestion.body}
+              required
             ></textarea>
           </div>
           <div className="form-element">
@@ -72,6 +76,7 @@ function AskQuestion() {
               name="tags"
               onChange={handleChange}
               value={askQuestion.tags}
+              required
             />
           </div>
           <button type="submit">submit question</button>

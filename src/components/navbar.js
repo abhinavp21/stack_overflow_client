@@ -7,12 +7,11 @@ import icon from "../search.png";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-light navbar-expand-sm bg-light">
+    <nav className="navbar navbar navbar-expand-md bg-light">
       <div className="container-fluid position-relative">
         <Link className="navbar-brand" to="/">
           Navbar
         </Link>
-        {/* button */}
         <button
           className="navbar-toggler"
           type="button"
@@ -41,7 +40,6 @@ function Navbar() {
             />
           </form>
         </div>
-        {/* SIDE LINKS*/}
         <div>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item ">
@@ -88,6 +86,7 @@ function Navbar() {
             </li>
           </ul>
         </div>
+        {/* SIDE LINKS*/}
       </div>
     </nav>
   );
