@@ -2,6 +2,8 @@
 .navbar {
   position: sticky;
   top: 0;
+  z-index: 1;
+  background-color: #e3f2fd;
 }
 .search-form {
   position: relative;
@@ -16,20 +18,18 @@
   top: 15px;
 }
 /*  */
-.body {
+.main {
   display: flex;
 }
 /* sidebar */
 .sidebar {
   position: sticky;
-  top: 744px;
-  /* position: relative; */
+  top: 70px;
   width: 150px;
   height: 1000px;
   text-transform: capitalize;
 }
 .sidebar hr {
-  /* position: absolute; */
   position: relative;
   transform: rotate(90deg);
   width: 900px;
@@ -43,7 +43,7 @@
   margin-top: 10px;
 }
 /*  */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 830px) {
   .sidebar {
     display: none;
   }
@@ -87,8 +87,9 @@
 .questionList h2 {
   padding: 10px;
 }
-/* .question {
-} */
+.question {
+  display: flex;
+}
 #side-count {
   padding: 0 20px;
 }
@@ -98,6 +99,14 @@
 }
 #votes-p {
   padding-left: 9px;
+}
+.question-content p {
+  margin-bottom: 5px;
+}
+.question-content span {
+  font-size: 1.15rem;
+  margin-right: 9px;
+  color: #4095c6;
 }
 .askQuestionConatiner {
   width: 60%;
@@ -115,13 +124,41 @@
   display: flex;
 }
 .singleQuestionBody aside {
-  width: 80px;
+  max-width: 70px;
+  text-align: center;
+  margin-right: 10px;
 }
 .vote-btn {
   border: none;
   background-color: white;
 }
-span {
-  margin-left: 12px;
-  font-size: 1.2rem;
+.answer-btn {
+  display: block;
+  padding: 0.4em 0.7em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.15em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #ffffff;
+  background-color: #4170f0;
+  text-align: center;
+  position: relative;
+}
+.answer-btn:active {
+  top: 0.1em;
+}
+.answer-btn:hover {
+  background-color: blue;
+}
+@media all and (max-width: 30em) {
+  .answer-btn {
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+.sidebar-link-item {
+  text-decoration: none;
 }

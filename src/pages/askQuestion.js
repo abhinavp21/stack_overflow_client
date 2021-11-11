@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import "../app.css";
+import "../styles.css";
 
 function AskQuestion() {
   const [askQuestion, setAskQuestion] = useState({
@@ -12,11 +12,13 @@ function AskQuestion() {
   //
   function handleSubmit(e) {
     e.preventDefault();
+    let tagStr = askQuestion.tags
+    const tagsArr = tagStr.split(" ")
     const newAskQuestion = {
       qid: new Date().getTime(),
       title: askQuestion.title,
       body: askQuestion.body,
-      tags: askQuestion.tags,
+      tags: tagsArr,
     };
     console.log(newAskQuestion);
     axios

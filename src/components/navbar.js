@@ -1,13 +1,25 @@
 import React from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useHistory } from "react-router-dom";
 // import "bootstrap/dist/js/bootstrap.js";
 import { Link } from "react-router-dom";
 import icon from "../search.png";
-// import "../styles.css";
+import "../styles.css";
 
 function Navbar() {
+  let history = useHistory();
+  const [searchTag, setSearchTag] = useState("")
+  function handleSubmit(e) {
+    e.preventDefault()
+    history.push(`/questions/tagged/${searchTag}`)
+    setSearchTag("")
+  }
+  function handleChange(e) {
+    setSearchTag(e.target.value)
+  }
   return (
-    <nav className="navbar navbar navbar-expand-md bg-light">
+    <nav className="navbar navbar-light navbar-expand-sm">
       <div className="container-fluid position-relative">
         <Link className="navbar-brand" to="/">
           Navbar
@@ -30,17 +42,17 @@ function Navbar() {
           className="collapse navbar-collapse position-relative me-auto"
           id="navbarSupportedContent"
         >
-          <form className="search-form mx-auto w-50">
+          <form className="search-form mx-auto w-50" onSubmit={handleSubmit}>
             <img src={icon} alt="" />
             <input
               className="form-control"
               type="search"
-              placeholder="Search"
+              placeholder="Search by tag"
               aria-label="Search"
+              onChange={handleChange}
+              value={searchTag}
             />
           </form>
-        </div>
-        <div>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item ">
               <Link className="nav-link" to="/">
@@ -48,45 +60,12 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/about">
                 About
               </Link>
             </li>
-            <li className="nav-item dropdown ">
-              <Link
-                className="nav-link dropdown-toggle"
-                to="/"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Drop
-              </Link>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <Link className="dropdown-item" to="/">
-                    Action
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/">
-                    Another action
-                  </Link>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/">
-                    Something else
-                  </Link>
-                </li>
-              </ul>
-            </li>
           </ul>
         </div>
-        {/* SIDE LINKS*/}
       </div>
     </nav>
   );

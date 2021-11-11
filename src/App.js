@@ -11,12 +11,14 @@ import AskQuestion from "./pages/askQuestion";
 import Questions from "./pages/questions";
 import SingleQuestion from "./pages/singleQuestion";
 import Error from "./pages/error";
+import MatchingTagQuestions from "./pages/matchingTagQuestions";
+import About from "./pages/about"
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <div className="body">
+      <div className="main">
         <Sidebar />
         <Switch>
           <Route exact path="/">
@@ -25,15 +27,17 @@ function App() {
           <Route exact path="/questions/ask">
             <AskQuestion />
           </Route>
-          {/* <Route path="/about">
+          <Route path="/about">
             <About />
           </Route>
-          */}
           <Route exact path="/questions">
             <Questions />
           </Route>
           <Route exact path="/questions/:id">
             <SingleQuestion />
+          </Route>
+          <Route exact path="/questions/tagged/:tag">
+            <MatchingTagQuestions />
           </Route>
           <Route path="*">
             <Error />
