@@ -16,9 +16,10 @@ function Question({ title, body, tags, votes, qid, answers }) {
           </h5>
           <p>{body}</p>
           <div>
-            {tags.map((tag) => {
-              return <span>{tag}</span>
-            })}
+            {tags &&
+              tags.map((tag) => {
+                return <span>{tag}</span>
+              })}
           </div>
         </div>
       </div>

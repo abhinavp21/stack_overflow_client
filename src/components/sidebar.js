@@ -6,10 +6,10 @@ function Sidebar() {
     <div className="sidebar">
       <hr />
       <div className="sidebar-link">
-        <Link clasName="sidebar-link-item" to="/">home</Link>
+        <Link className="sidebar-link-item" to="/">home</Link>
       </div>
       <div className="sidebar-link">
-        <Link clasName="sidebar-link-item" to="/questions">questions</Link>
+        <Link className="sidebar-link-item" to="/questions">questions</Link>
       </div>
     </div>
   );
