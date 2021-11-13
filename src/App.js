@@ -14,14 +14,18 @@ import Error from "./pages/error";
 import MatchingTagQuestions from "./pages/matchingTagQuestions";
 import About from "./pages/about"
 import Register from "./pages/register/register"
+
 function App() {
   const [loginUser, setLoginUser] = useState({})
+  function handleLogin(user) {
+    setLoginUser(user)
+  }
   return (
     <Router>
       <Navbar />
       <Switch>
         <Route exact path="/">
-          {loginUser && loginUser._id ? <Home /> : <Login setLoginUser={setLoginUser} />}
+          {loginUser && loginUser._id ? <Home /> : <Login handleLogin={handleLogin} />}
         </Route>
         <Route exact path="/login">
           <Login />
