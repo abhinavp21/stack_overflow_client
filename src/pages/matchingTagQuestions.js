@@ -17,16 +17,20 @@ function MatchingTagQuestions() {
         // }
     }, []);
     return (
-        <div className="questionList">
-            <h2>All Tagged Questions</h2>
-            <hr />
-            <div>
-                {tagQuestions &&
-                    tagQuestions.map((taggedQuestion) => {
-                        return <Question {...taggedQuestion} key={taggedQuestion.qid} />;
-                    })}
-            </div>
-        </div>
+        <div>
+            {
+                tagQuestions ? <h2 style={{ textAlign: "center" }}>No matching Questions</h2> : <div className="questionList">
+                    <h2>All Tagged Questions</h2>
+                    <hr />
+                    <div>
+                        {tagQuestions &&
+                            tagQuestions.map((taggedQuestion) => {
+                                return <Question {...taggedQuestion} key={taggedQuestion.qid} />;
+                            })}
+                    </div>
+                </div>
+            }
+        </div >
     );
 }
 export default MatchingTagQuestions;

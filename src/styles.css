@@ -1,16 +1,36 @@
-/* NAVBAR */
+.navbar-container {
+  background-color: #e3f2fd;
+}
 .navbar {
-  display: flex;
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #e3f2fd;
+  display: flex;
+}
+.navbar-div {
+  margin: auto;
+}
+.nav-link {
+  text-decoration: none;
+  color: grey;
+}
+.nav-link:hover {
+  color: black;
+}
+.navbar-collapse {
+  width: 40%;
 }
 .navbar-toggler {
+  display: none;
+  padding-top: 5px;
 }
 .search-form {
   position: relative;
   width: 70%;
+}
+.search-input:focus {
+  border-color: #4170f0;
+  box-shadow: 0 0 2px #4170f0;
 }
 .search-form input {
   padding-left: 28px;
@@ -18,16 +38,66 @@
 .search-form img {
   position: absolute;
   left: 8px;
-  top: 16px;
+  top: 6px;
 }
-.navbar-nav {
+.navbar-list {
   display: flex;
+  padding: 0;
+}
+.navbar-list li {
+  margin: 0 14px;
+}
+/* #dropdownSearch {
+  background-color: ;
+} */
+
+.dropdown-search-form {
+  margin-left: 30%;
+  padding: 0 0 10px;
+  position: relative;
+  width: 70%;
+}
+.dropdown-search-input:focus {
+  border-color: #4170f0;
+  box-shadow: 0 0 2px #4170f0;
+}
+.dropdown-search-form input {
+  padding-left: 28px;
+}
+
+.dropdown-search-form img {
+  position: absolute;
+  left: 8px;
+  top: 5px;
+}
+@media screen and (max-width: 600px) {
+  .navbar-collapse {
+    display: none;
+  }
+  .list-div {
+    margin: 0;
+  }
+  .icon-div {
+    margin-right: 8px;
+  }
+  .navbar-toggler {
+    display: inline-block;
+  }
+  .navbar-brand {
+    margin-left: 20px;
+  }
+}
+@media screen and (min-width: 600px) {
+  #dropdownSearch {
+    display: none;
+  }
 }
 /*  */
 .main {
   display: flex;
 }
 /* sidebar */
+
 .sidebar {
   position: sticky;
   top: 70px;
@@ -48,12 +118,13 @@
 .links {
   margin-top: 10px;
 }
-/*  */
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 800px) {
   .sidebar {
     display: none;
   }
 }
+
+/*  */
 .home-container {
   width: 60%;
 }
@@ -85,9 +156,6 @@
 }
 .btn:hover {
   background-color: #4095c6;
-}
-@media screen and (max-width: 30em) {
-  /*   */
 }
 /*  */
 .questionList h2 {

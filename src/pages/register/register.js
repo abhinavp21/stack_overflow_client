@@ -2,17 +2,16 @@ import React, { useState } from "react"
 import "./register.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
+import { useGlobalContext } from "../../context"
 
 const Register = () => {
-
+    // const { loginUser, handleLogin } = useGlobalContext()
     const history = useHistory()
-
     const [user, setUser] = useState({
         name: "",
         email: "",
         password: "",
     })
-
     const handleChange = e => {
         const { name, value } = e.target
         setUser({
@@ -27,7 +26,17 @@ const Register = () => {
             axios.post("http://localhost:5000/register", user)
                 .then(res => {
                     alert(res.data.message)
-                    history.push("/login")
+                    const response = res.data.success
+                    console.log(response);
+                    if (response === true) {
+                        // handleLogin(true)
+                        history.push("/")
+                    }
+                    else if (response === "r_true")
+                        history.push("/login")
+                    else {
+                        history.push("/register")
+                    }
                 })
         } else {
             alert("invlid input")

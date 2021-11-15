@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Question from "../components/question";
 import Sidebar from "../components/sidebar";
+
 function Questions() {
   const [questions, setQuestions] = useState([]);
   useEffect(() => {
