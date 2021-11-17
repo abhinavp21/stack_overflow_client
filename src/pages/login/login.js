@@ -8,7 +8,7 @@ const Login = ({ handleLogin }) => {
     const history = useHistory()
 
     const [user, setUser] = useState({
-        email: "",
+        username: "",
         password: ""
     })
 
@@ -21,19 +21,24 @@ const Login = ({ handleLogin }) => {
     }
 
     const login = () => {
-        axios.post("http://localhost:5000/login", user)
+        axios({
+            method: "POST",
+            url: "http://localhost:5000/login",
+            withCredentials: true,
+            data: user
+        })
             .then(res => {
-                alert(res.data.message)
-                console.log(res.data.user);
-                handleLogin(res.data.user)
-                history.push("/")
+                if (res.data.success === true)
+                    history.push("/")
+                else
+                    history.push("/login")
             })
     }
 
     return (
         <div className="login">
             <h1>Login</h1>
-            <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email"></input>
+            <input type="email" name="username" value={user.username} onChange={handleChange} placeholder="Enter your Email"></input>
             <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter your Password"></input>
             <div className="button" onClick={login}>Login</div>
             <div>or</div>

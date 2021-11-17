@@ -8,20 +8,17 @@ import { useGlobalContext } from "../context";
 function Home() {
   const { loginUser, handleLogin } = useGlobalContext()
   useEffect(() => {
-    axios.get("http://localhost:5000/").then((res) => {
-      if (res.data.success === true) {
-        alert("success")
-        handleLogin(true)
-      }
-      else {
-        alert("failure")
-        // handleLogin(false)
-      }
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "http://localhost:5000/"
     })
-    // return () => {
-    // }
+      .then((res) => {
+        console.log(res.data);
+        handleLogin(res.data)
+      })
   }, [])
-  if (loginUser)
+  if (loginUser && loginUser.username)
     return (<div className="main">
       <Sidebar />
       <div className="home-container" >

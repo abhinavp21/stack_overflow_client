@@ -7,7 +7,7 @@ import Sidebar from "../components/sidebar";
 function Questions() {
   const [questions, setQuestions] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/questions").then((res) => {
+    axios.get("http://localhost:5000/questions/").then((res) => {
       setQuestions(res.data);
     });
     // return () => {

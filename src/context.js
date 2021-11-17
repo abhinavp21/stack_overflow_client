@@ -4,10 +4,10 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
     //component
-    const [loginUser, setLoginUser] = useState(false);
+    const [loginUser, setLoginUser] = useState({});
 
-    const handleLogin = (e) => {
-        setLoginUser(e.target.value)
+    const handleLogin = (obj) => {
+        setLoginUser(obj)
     };
 
     return (

@@ -23,16 +23,20 @@ const Register = () => {
     const register = () => {
         const { name, email, password } = user
         if (name && email && password) {
-            axios.post("http://localhost:5000/register", user)
+            axios({
+                method: "POST",
+                url: "http://localhost:5000/register",
+                withCredentials: true,
+                data: user
+            })
                 .then(res => {
                     alert(res.data.message)
                     const response = res.data.success
-                    console.log(response);
                     if (response === true) {
                         // handleLogin(true)
                         history.push("/")
                     }
-                    else if (response === "r_true")
+                    else if (response === "already")
                         history.push("/login")
                     else {
                         history.push("/register")

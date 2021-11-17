@@ -11,32 +11,14 @@ import Error from "./pages/error";
 import MatchingTagQuestions from "./pages/matchingTagQuestions";
 import About from "./pages/about"
 import Register from "./pages/register/register"
-import axios from "axios";
 
 function App() {
-  // const [loginUser, setLoginUser] = useState({})
-  // useEffect(() => {
-  //   axios.get("http://localhost:5000/").then((res) => {
-  //     if (res.data.success === true) {
-  //       alert("success")
-  //       setLoginUser(res.data.user)
-  //     }
-  //   })
-  //   // return () => {
-  //   // }
-  // }, [])
-  // loginUser && loginUser._id ?
-  // function handleLogin(user) {
-  //   setLoginUser(user)
-  // }
   return (
     <Router>
       <Navbar />
       <Switch>
         <Route exact path="/">
           <Home />
-          {/* {handleLogin = { handleLogin }} */}
-          {/* {<Home /> : <Register />} */}
         </Route>
         <Route exact path="/login">
           <Login />
