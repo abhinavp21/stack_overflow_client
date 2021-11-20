@@ -17,9 +17,6 @@ function Navbar() {
   }
   // 
   function handleDropdown() {
-    // if(dropdownSearch === false){
-
-    // }
     setDropdownSearch(!dropdownSearch)
   }
   // 

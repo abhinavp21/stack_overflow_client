@@ -7,18 +7,19 @@ import down from "../arrow-down.png"
 import "../styles.css"
 import reducer from "../components/reducer";
 import Sidebar from "../components/sidebar";
+import { useGlobalContext } from "../context";
 
 var question_id
 const defaultSingleQuestion = {
-  qid: "",
   title: "",
   body: "",
   tags: [],
   answers: [{ ansid: "", votes: 0, body: "" }],
-  votes: "",
+  votes: [],
 }
 //
 function SingleQuestion() {
+  // const { loginUser, handleLogin } = useGlobalContext()
   let { id } = useParams();
   question_id = id
   const [answer, setAnswer] = useState("")
@@ -29,13 +30,14 @@ function SingleQuestion() {
       const question = res.data
       dispatch({ type: "INITIALIZE_QUESTION", payload: question })
     });
+    // console.log(loginUser);
   }, []);
   // 
   function increaseCount() {
-    dispatch({ type: "INCREASE_VOTES_QUESTION", payload: singleQuestion.votes })
+    // dispatch({ type: "INCREASE_VOTES_QUESTION", payload: loginUser.id })
   }
   function decreaseCount() {
-    dispatch({ type: "DECREASE_VOTES_QUESTION", payload: singleQuestion.votes })
+    // dispatch({ type: "DECREASE_VOTES_QUESTION", payload: loginUser.id })
   }
   // 
   function handleAnswerChange(e) {
@@ -64,7 +66,7 @@ function SingleQuestion() {
             <div className="singleQuestionBody">
               <aside>
                 <button className="vote-btn" onClick={() => increaseCount()}><img src={up} alt="upvote" /></button><br />
-                <span>{singleQuestion.votes}</span>
+                <span>{singleQuestion.votes.length}</span>
                 <br /><button className="vote-btn" onClick={() => decreaseCount()}><img src={down} alt="downvote" /></button>
               </aside>
               <div className="question-content">

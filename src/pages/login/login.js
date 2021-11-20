@@ -1,12 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import "./login.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
+import Cookies from "js-cookie"
+import { AppContext } from "../../context"
 
-const Login = ({ handleLogin }) => {
-
+function Login() {
+    const { setIsLoggedIn } = useContext(AppContext)
     const history = useHistory()
-
     const [user, setUser] = useState({
         username: "",
         password: ""
@@ -19,7 +20,6 @@ const Login = ({ handleLogin }) => {
             [name]: value
         })
     }
-
     const login = () => {
         axios({
             method: "POST",
@@ -28,13 +28,16 @@ const Login = ({ handleLogin }) => {
             data: user
         })
             .then(res => {
-                if (res.data.success === true)
+                console.log(res.data.user);
+                if (res.data.success === true) {
+                    setIsLoggedIn(true)
+                    Cookies.set("user", "loginTrue")
                     history.push("/")
+                }
                 else
                     history.push("/login")
             })
     }
-
     return (
         <div className="login">
             <h1>Login</h1>

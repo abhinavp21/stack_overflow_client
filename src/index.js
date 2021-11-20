@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { AppProvider } from './context';
+// import { AppProvider } from "./context";
+
 
 ReactDOM.render(
+  // <AppProvider>
   <React.StrictMode>
-    <AppProvider>
-      <App />
-    </AppProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

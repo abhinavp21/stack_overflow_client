@@ -25,7 +25,7 @@ function MatchingTagQuestions() {
                     <div>
                         {tagQuestions &&
                             tagQuestions.map((taggedQuestion) => {
-                                return <Question {...taggedQuestion} key={taggedQuestion.qid} />;
+                                return <Question {...taggedQuestion} key={taggedQuestion._id} />;
                             })}
                     </div>
                 </div>

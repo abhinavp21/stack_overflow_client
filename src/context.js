@@ -1,35 +1,26 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 
 const AppContext = React.createContext();
 
-const AppProvider = ({ children }) => {
-    //component
-    const [loginUser, setLoginUser] = useState({});
+// const AppProvider = ({ children }) => {
+//     //component
+//     const [loginUser, setLoginUser] = useState(false);
 
-    const handleLogin = (obj) => {
-        setLoginUser(obj)
-    };
-
-    return (
-        <AppContext.Provider
-            value={{
-                loginUser,
-                handleLogin,
-                // isModalOpen,
-                // openModal,
-                // closeModal,
-                // openSidebar,
-                // closeSidebar,
-            }}
-        >
-            {children}
-        </AppContext.Provider>
-    );
-};
+//     return (
+//         <AppContext.Provider
+//             value={{
+//                 loginUser,
+//                 setLoginUser
+//             }}
+//         >
+//             {children}
+//         </AppContext.Provider>
+//     );
+// };
 
 // function to be exported
-export const useGlobalContext = () => {
-    return useContext(AppContext);
-};
+// export const useGlobalContext = () => {
+//     return useContext(AppContext);
+// };
 
-export { AppContext, AppProvider };
+export { AppContext };

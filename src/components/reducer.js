@@ -6,20 +6,27 @@ export default function reducer(singleQuestion, action) {
         return action.payload
     }
     if (action.type === "INCREASE_VOTES_QUESTION") {
-        let updatedSingleQuestion = {
-            ...singleQuestion, votes: action.payload + 1,
-        }
-        axios
-            .post(`http://localhost:5000/questions/${question_id}/votes-update`, updatedSingleQuestion)
+        let updatedSingleQuestion
+        axios({
+            method: "POST",
+            url: `http://localhost:5000/questions/${question_id}/votes-increase`,
+            withCredentials: true,
+            data: { action: "increase", id: action.payload },
+        }).then((res) => {
+            updatedSingleQuestion = res.data
+        })
         return updatedSingleQuestion
     }
     if (action.type === "DECREASE_VOTES_QUESTION") {
-        console.log(question_id);
-        let updatedSingleQuestion = {
-            ...singleQuestion, votes: action.payload - 1,
-        }
-        axios
-            .post(`http://localhost:5000/questions/${question_id}/votes-update`, updatedSingleQuestion)
+        let updatedSingleQuestion
+        axios({
+            method: "POST",
+            url: `http://localhost:5000/questions/${question_id}/votes-decrease`,
+            withCredentials: true,
+            data: { action: "decrease", id: action.payload },
+        }).then((res) => {
+            updatedSingleQuestion = res.data
+        })
         return updatedSingleQuestion
     }
     if (action.type === "SUBMIT_ANSWER") {

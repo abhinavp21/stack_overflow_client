@@ -109,8 +109,9 @@
   position: relative;
   transform: rotate(90deg);
   width: 900px;
-  top: 430px;
+  top: 440px;
   right: 315px;
+  border-bottom: none;
 }
 .sidebar-link {
   margin: 20px 10px;
@@ -174,8 +175,12 @@
 #votes-p {
   padding-left: 9px;
 }
+.question-content h2 {
+  margin: 3px auto 0;
+  padding: 0;
+}
 .question-content p {
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 .question-content span {
   font-size: 1.15rem;
