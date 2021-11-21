@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 // import { useGlobalContext } from "./context"
 import { Route, Redirect } from "react-router-dom"
+import Cookies from "js-cookie";
 
 function ProtectedQuestions({ isLoggedIn, component: Component, ...rest }) {
     // const { loginUser } = useGlobalContext()
@@ -9,7 +10,18 @@ function ProtectedQuestions({ isLoggedIn, component: Component, ...rest }) {
         render={() => isLoggedIn ? <Component /> : <Redirect to="/login" />}
     />
 }
-function ProtectedHome({ isLoggedIn, component: Component, ...rest }) {
+function ProtectedHome({ isLoggedIn, setIsLoggedIn, component: Component, ...rest }) {
+    const readCookies = () => {
+        const user = Cookies.get("user")
+        if (user) {
+            setIsLoggedIn(true)
+            console.log("loggedIn");
+        }
+    }
+    useEffect(() => {
+        console.log(isLoggedIn);
+        readCookies();
+    }, [])
     return <Route
         {...rest}
         render={() => isLoggedIn ? <Component /> : <Redirect to="/login" />}

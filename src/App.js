@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
@@ -11,21 +11,21 @@ import MatchingTagQuestions from "./pages/matchingTagQuestions";
 import About from "./pages/about"
 import Register from "./pages/register/register"
 import { AppContext } from "./context";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { ProtectedQuestions, ProtectedHome } from "./protectRoutes"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const readCookies = () => {
-    const user = Cookies.get("user")
-    if (user) {
-      setIsLoggedIn(true)
-      console.log("loggedIn");
-    }
-  }
-  useEffect(() => {
-    readCookies();
-  }, [])
+  // const readCookies = () => {
+  //   const user = Cookies.get("user")
+  //   if (user) {
+  //     setIsLoggedIn(true)
+  //     console.log("loggedIn");
+  //   }
+  // }
+  // useEffect(() => {
+  //   readCookies();
+  // }, [])
   return (
     <AppContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       <Router>
@@ -34,9 +34,9 @@ function App() {
           {/* <Route exact path="/">
             <Home />
           </Route> */}
-          <ProtectedHome exact path="/" isLoggedIn={isLoggedIn} component={Home} />
-          <Route exact path="/login" isLoggedIn={isLoggedIn} >
-            <Login />
+          <ProtectedHome exact path="/" setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} component={Home} />
+          <Route exact path="/login">
+            <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           </Route>
           <Route exact path="/register">
             <Register />

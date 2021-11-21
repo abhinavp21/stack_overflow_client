@@ -3,10 +3,9 @@ import "./login.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 import Cookies from "js-cookie"
-import { AppContext } from "../../context"
+// import { AppContext } from "../../context"
 
-function Login() {
-    const { setIsLoggedIn } = useContext(AppContext)
+function Login({ isLoggedIn, setIsLoggedIn }) {
     const history = useHistory()
     const [user, setUser] = useState({
         username: "",
