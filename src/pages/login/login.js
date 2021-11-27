@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react"
 import "./login.css"
 import axios from "axios"
-import { useHistory } from "react-router-dom"
+import { useHistory, Redirect } from "react-router-dom"
 import Cookies from "js-cookie"
-// import { AppContext } from "../../context"
+import { useGlobalContext } from "../../context"
 
-function Login({ isLoggedIn, setIsLoggedIn }) {
+function Login() {
+    const { loginUser, setLoginUser } = useGlobalContext()
     const history = useHistory()
     const [user, setUser] = useState({
         username: "",
@@ -22,19 +23,18 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
     const login = () => {
         axios({
             method: "POST",
-            url: "http://localhost:5000/login",
+            url: "https://myproject-server.herokuapp.com/login",
             withCredentials: true,
             data: user
         })
             .then(res => {
-                console.log(res.data.user);
                 if (res.data.success === true) {
-                    setIsLoggedIn(true)
-                    Cookies.set("user", "loginTrue")
                     history.push("/")
                 }
-                else
+                else {
+                    alert("incorrect username or password")
                     history.push("/login")
+                }
             })
     }
     return (

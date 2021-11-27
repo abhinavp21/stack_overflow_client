@@ -51,7 +51,7 @@ function Navbar() {
         <div className="navbar-div list-div">
           <ul type="none" className="navbar-list">
             <li >
-              <a className="nav-link" href="/">Profile</a>
+              <a className="nav-link" href="/questions">questions</a>
             </li>
             <li >
               <a className="nav-link" href="/about">About</a>

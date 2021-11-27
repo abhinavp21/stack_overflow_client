@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import "../styles.css";
-// import { useGlobalContext } from "../context";
+import { useGlobalContext } from "../context";
 import Sidebar from "../components/sidebar";
 
 function AskQuestion() {
-  // const { loginUser } = useGlobalContext()
+  const { loginUser, setLoginUser } = useGlobalContext()
+  const history = useHistory()
   const [askQuestion, setAskQuestion] = useState({
     title: "",
     body: "",
@@ -15,10 +16,20 @@ function AskQuestion() {
   });
   //
   useEffect(() => {
-    // console.log(loginUser);
+    axios({
+      method: "GET",
+      url: "https://myproject-server.herokuapp.com/",
+      withCredentials: true
+    }).then(res => {
+      if (res.data.success) {
+        setLoginUser(res.data.user)
+      }
+      else {
+        history.push("/login")
+      }
+    })
   }, [])
   function handleSubmit(e) {
-    e.preventDefault();
     let tagStr = askQuestion.tags
     const tagsArr = tagStr.split(" ")
     const newAskQuestion = {
@@ -26,10 +37,12 @@ function AskQuestion() {
       body: askQuestion.body,
       tags: tagsArr,
     };
-    console.log(newAskQuestion);
-    axios
-      .post("http://localhost:5000/questions/ask", newAskQuestion)
-      .then((res) => console.log(res.data));
+    axios({
+      method: "POST",
+      url: "https://myproject-server.herokuapp.com/questions/ask",
+      withCredentials: true,
+      data: newAskQuestion,
+    }).then((res) => console.log(res.data));
     setAskQuestion({
       title: "",
       body: "",
@@ -50,7 +63,7 @@ function AskQuestion() {
         <Sidebar />
         <div className="form-container">
           <h2>Ask a question</h2>
-          <form action="" onSubmit={handleSubmit}>
+          <form action="/questions" onSubmit={handleSubmit}>
             <div className="form-element">
               <h3>Title</h3>
               {/*  */}
@@ -59,6 +72,7 @@ function AskQuestion() {
                 type="text"
                 onChange={handleChange}
                 value={askQuestion.title}
+                size="40"
                 required
               />
             </div>

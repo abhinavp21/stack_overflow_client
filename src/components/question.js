@@ -5,16 +5,18 @@ function Question({ _id, title, body, tags, votes, answers }) {
     <div>
       <div className="question">
         <aside id="side-count">
-          <h5>{votes.length}</h5>
+          <h4>{votes.length > 0 ? votes.reduce((prev, curr) => {
+            return (prev.vote + curr.vote)
+          }).vote : 0}</h4>
           <p id="votes-p">votes</p>
-          <h5>{answers.length}</h5>
+          <h4>{answers.length}</h4>
           <p>answers</p>
         </aside>
         <div className="question-content">
           <h2>
-            <Link to={`/questions/${_id}`}>{title}</Link>
+            <Link to={`/questions/singleQuestion/${_id}`}>{title}</Link>
           </h2>
-          <p>{body}</p>
+          <p>{body.length < 200 ? body : body.substr(0, 200) + "..."}</p>
           <div>
             {tags &&
               tags.map((tag) => {

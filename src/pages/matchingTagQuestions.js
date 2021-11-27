@@ -1,34 +1,46 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import Question from "../components/question";
+import Sidebar from "../components/sidebar";
+import { useGlobalContext } from "../context";
 
 function MatchingTagQuestions() {
+    const { loginUser, setLoginUser } = useGlobalContext()
+    const history = useHistory()
     let { tag } = useParams()
     const [tagQuestions, setTagQuestions] = useState([]);
     useEffect(() => {
-        console.log(tag);
-        axios.get(`http://localhost:5000/questions/tagged/${tag}`).then((res) => {
+        axios.get(`https://myproject-server.herokuapp.com/questions/tagged/${tag}`).then((res) => {
             setTagQuestions(res.data);
         });
-        // return () => {
-        //     cleanup
-        // }
+        axios({
+            method: "GET",
+            url: "https://myproject-server.herokuapp.com/",
+            withCredentials: true
+        }).then(res => {
+            if (res.data.success) {
+                setLoginUser(res.data.user)
+            }
+            else {
+                history.push("/login")
+            }
+        })
     }, []);
     return (
-        <div>
-            {
-                tagQuestions ? <h2 style={{ textAlign: "center" }}>No matching Questions</h2> : <div className="questionList">
-                    <h2>All Tagged Questions</h2>
-                    <hr />
-                    <div>
-                        {tagQuestions &&
-                            tagQuestions.map((taggedQuestion) => {
-                                return <Question {...taggedQuestion} key={taggedQuestion._id} />;
-                            })}
-                    </div>
+        <div className="main">
+            <Sidebar />
+            {tagQuestions ? <div className="questionList">
+                <h2>All Tagged Questions</h2>
+                <hr />
+                <div>
+                    {tagQuestions &&
+                        tagQuestions.map((taggedQuestion) => {
+                            return <Question {...taggedQuestion} key={taggedQuestion._id} />;
+                        })}
                 </div>
+            </div> : <h2 style={{ textAlign: "center" }}>No matching Questions</h2>
             }
         </div >
     );

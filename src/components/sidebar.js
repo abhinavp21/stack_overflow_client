@@ -5,7 +5,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <hr />
-      <div className="sidebar-link">
+      <div className="sidebar-link" id="firstLink">
         <Link className="sidebar-link-item" to="/">home</Link>
       </div>
       <div className="sidebar-link">
