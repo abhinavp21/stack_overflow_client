@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:5000/",
+      url: "https://myproject-server.herokuapp.com/",
       withCredentials: true
     }).then(res => {
       if (res.data.success) {
