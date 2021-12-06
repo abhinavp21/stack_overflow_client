@@ -4,6 +4,7 @@ import { useGlobalContext } from "../context";
 import "../styles.css"
 import axios from "axios";
 import { useHistory } from "react-router";
+import "../styles.css"
 
 function About() {
     const { loginUser, setLoginUser } = useGlobalContext()
@@ -11,7 +12,7 @@ function About() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "http://localhost:5000/",
+            url: "https://myprojects-server.herokuapp.com/",
             withCredentials: true
         }).then(res => {
             if (res.data.success) {
@@ -25,8 +26,8 @@ function About() {
     return <div className="main" >
         <Sidebar />
         <div className="about">
-            <h3>About Us</h3>
-            <p>This site is built by Abhinav, a student of GGSIPU. Due to the pandemic, students were not able to interact much with their classmates and seniors.Due to this doubt resolution became difficult.This is a website whhere students can ask their doubts after logging in and get answers to their questions.</p>
+            <h2>About Us</h2>
+            <p>This site is built by Abhinav, a student of GGSIPU. Due to the pandemic, students were not able to interact much with their classmates and seniors.Due to this doubt resolution became difficult.This is a website whhere students can ask their doubts after logging in and get answers to their questions.Students can also answer to other's questions.</p>
         </div>
     </div >
 }

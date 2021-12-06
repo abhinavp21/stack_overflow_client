@@ -10,7 +10,7 @@ import Error from "./pages/error";
 import MatchingTagQuestions from "./pages/matchingTagQuestions";
 import About from "./pages/about"
 import Register from "./pages/register/register"
-
+import UserQuestions from "./pages/userQuestions"
 
 function App() {
   return (
@@ -31,6 +31,9 @@ function App() {
         </Route>
         <Route exact path="/questions">
           <Questions />
+        </Route>
+        <Route exact path="/questions/byuser/:id">
+          <UserQuestions />
         </Route>
         <Route exact path="/questions/singleQuestion/:id">
           <SingleQuestion />

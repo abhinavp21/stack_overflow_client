@@ -22,7 +22,7 @@ function ProtectedHome({ component: Component, ...rest }) {
     // useEffect(() => {
     //     axios({
     //         method: "GET",
-    //         url: "http://localhost:5000/",
+    //         url: "https://myprojects-server.herokuapp.com/",
     //         withCredentials: true
     //     })
     // }, [])

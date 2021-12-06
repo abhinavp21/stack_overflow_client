@@ -18,7 +18,7 @@ function AskQuestion() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "https://myproject-server.herokuapp.com/",
+      url: "https://myprojects-server.herokuapp.com/",
       withCredentials: true
     }).then(res => {
       if (res.data.success) {
@@ -30,7 +30,8 @@ function AskQuestion() {
     })
   }, [])
   function handleSubmit(e) {
-    let tagStr = askQuestion.tags
+    e.preventDefault()
+    let tagStr = askQuestion.tags.toLowerCase()
     const tagsArr = tagStr.split(" ")
     const newAskQuestion = {
       title: askQuestion.title,
@@ -39,14 +40,22 @@ function AskQuestion() {
     };
     axios({
       method: "POST",
-      url: "https://myproject-server.herokuapp.com/questions/ask",
+      url: "https://myprojects-server.herokuapp.com/questions/ask",
       withCredentials: true,
       data: newAskQuestion,
-    }).then((res) => console.log(res.data));
-    setAskQuestion({
-      title: "",
-      body: "",
-      tags: "",
+    }).then((res) => {
+      if (res.data.success === true) {
+        setAskQuestion({
+          title: "",
+          body: "",
+          tags: "",
+        });
+        history.push("/questions")
+        console.log("posted question");
+      }
+      else {
+        console.log("failed");
+      }
     });
   }
 
@@ -63,7 +72,7 @@ function AskQuestion() {
         <Sidebar />
         <div className="form-container">
           <h2>Ask a question</h2>
-          <form action="/questions" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="form-element">
               <h3>Title</h3>
               {/*  */}

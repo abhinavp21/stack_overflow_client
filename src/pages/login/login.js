@@ -23,7 +23,7 @@ function Login() {
     const login = () => {
         axios({
             method: "POST",
-            url: "https://myproject-server.herokuapp.com/login",
+            url: "https://myprojects-server.herokuapp.com/login",
             withCredentials: true,
             data: user
         })

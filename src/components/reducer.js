@@ -1,6 +1,3 @@
-import { question_id } from "../pages/singleQuestion"
-import axios from "axios";
-
 export default function reducer(singleQuestion, action) {
     if (action.type === "INITIALIZE_QUESTION") {        /// reducer
         return action.payload

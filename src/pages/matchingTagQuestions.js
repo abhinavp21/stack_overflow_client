@@ -11,13 +11,11 @@ function MatchingTagQuestions() {
     const history = useHistory()
     let { tag } = useParams()
     const [tagQuestions, setTagQuestions] = useState([]);
+
     useEffect(() => {
-        axios.get(`https://myproject-server.herokuapp.com/questions/tagged/${tag}`).then((res) => {
-            setTagQuestions(res.data);
-        });
         axios({
             method: "GET",
-            url: "https://myproject-server.herokuapp.com/",
+            url: "https://myprojects-server.herokuapp.com/",
             withCredentials: true
         }).then(res => {
             if (res.data.success) {
@@ -26,6 +24,13 @@ function MatchingTagQuestions() {
             else {
                 history.push("/login")
             }
+        })
+        axios({
+            method: "GET",
+            url: `https://myprojects-server.herokuapp.com/questions/tagged/${tag}`,
+            withCredentials: true
+        }).then((res) => {
+            setTagQuestions(res.data);
         })
     }, []);
     return (

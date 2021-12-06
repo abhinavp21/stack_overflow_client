@@ -2,10 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom"
 import Question from "../components/question";
 import Sidebar from "../components/sidebar";
 import { useGlobalContext } from "../context";
-import NotLoggedIn from "./notLoggedIn";
 
 function Questions() {
   const { loginUser, setLoginUser } = useGlobalContext()
@@ -13,12 +13,9 @@ function Questions() {
   const history = useHistory()
 
   useEffect(() => {
-    axios.get("https://myproject-server.herokuapp.com/questions/").then((res) => {
-      setQuestions(res.data);
-    });
     axios({
       method: "GET",
-      url: "https://myproject-server.herokuapp.com/",
+      url: "https://myprojects-server.herokuapp.com/",
       withCredentials: true
     }).then(res => {
       if (res.data.success) {
@@ -28,14 +25,22 @@ function Questions() {
         history.push("/login")
       }
     })
+    axios.get("https://myprojects-server.herokuapp.com/questions/").then((res) => {
+      setQuestions(res.data);
+    });
   }, []);
   return (<div className="main">
     <Sidebar />
     <div className="questionList">
-      <h2>All Questions</h2>
+      <div className="questions-heading">
+        <h2>All Questions</h2>
+        <Link className="btn" to="/questions/ask">
+          Ask Question
+        </Link>
+      </div>
       <hr />
       <div>
-        {questions &&
+        {(questions.length > 0) &&
           questions.map((question) => {
             return <Question {...question} key={question._id} />;
           })}

@@ -1,18 +1,23 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useGlobalContext } from "../context";
 // import { Link } from "react-router-dom";
-import icon from "../search.png";
+import icon from "../images/search.png"
 import "../styles.css";
+import brand from "../images/brand.jpeg"
 
 function Navbar() {
   let history = useHistory();
   const [dropdownSearch, setDropdownSearch] = useState(false)
   const [searchTag, setSearchTag] = useState("");
+  const { loginUser, setLoginUser } = useGlobalContext()
   // 
   function handleSubmit(e) {
     e.preventDefault();
-    history.push(`/questions/tagged/${searchTag}`);
+    let tag = searchTag.toLowerCase()
+    history.push(`/questions/tagged/${tag}`);
     setSearchTag("");
   }
   // 
@@ -23,11 +28,29 @@ function Navbar() {
   function handleChange(e) {
     setSearchTag(e.target.value);
   }
+  function handleLogout() {
+    axios({
+      method: "POST",
+      url: "https://myprojects-server.herokuapp.com/logout",
+      withCredentials: true,
+    }).then(res => {
+      if (res.data.success === true) {
+        setLoginUser({})
+        console.log("logging out")
+        history.push("/login")
+      }
+      else
+        alert("logout failed")
+    })
+  }
   return (
     <nav className="navbar-container">
       <div className="navbar">
         <div className="navbar-div navbar-brand">
-          <a className="nav-link" href="/">Navbar Brand</a>
+          <a className="nav-link" href="/">
+            <img id="navbar-logo" src={brand} alt="navbar-brand" />
+            <span>Companion</span>
+          </a>
         </div>
         <div className="navbar-div icon-div">
           <button className="navbar-toggler" onClick={handleDropdown}>
@@ -36,12 +59,13 @@ function Navbar() {
             </span>
           </button>
         </div>
-        <div className="navbar-collapse navbar-div">
+        <div className="navbar-div navbar-collapse">
           <form className="search-form " onSubmit={handleSubmit}>
             <img src={icon} alt="" />
             <input
               className="search-input"
               type="search"
+              size="18"
               placeholder="Search by tag"
               onChange={handleChange}
               value={searchTag}
@@ -50,11 +74,18 @@ function Navbar() {
         </div>
         <div className="navbar-div list-div">
           <ul type="none" className="navbar-list">
+            {(loginUser && loginUser.id) ?
+              <li>
+                <button className="logout-btn" onClick={() => handleLogout()}>logout</button>
+              </li> : null}
             <li >
               <a className="nav-link" href="/questions">questions</a>
             </li>
             <li >
-              <a className="nav-link" href="/about">About</a>
+              <a className="nav-link" href="/questions/ask">ask</a>
+            </li>
+            <li >
+              <a className="nav-link" href="/about">about</a>
             </li>
           </ul>
         </div>
