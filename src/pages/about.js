@@ -12,11 +12,7 @@ function About() {
     useEffect(() => {
         axios({
             method: "GET",
-<<<<<<< HEAD
             url: "https://myprojects-server.herokuapp.com/",
-=======
-            url: "https://myproject-server.herokuapp.com/",
->>>>>>> 1ddaf25ba2fbcaacef25c80dafb64b64f1b103bd
             withCredentials: true
         }).then(res => {
             if (res.data.success) {
