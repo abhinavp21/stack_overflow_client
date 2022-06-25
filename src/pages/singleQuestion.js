@@ -141,7 +141,7 @@ function SingleQuestion() {
           <hr />
           <div className="singleQuestionBody">
             <aside>
-              <button className="vote-btn" onClick={() => increaseCount()}><img src={up} alt="upvote" style={singleQuestion.votes.some(obj => { return (obj.uid === loginUser.id && obj.vote === 1) }) ? { borderColor: "#b85428", borderStyle: "solid" } : null} /></button><br />
+              <button className="vote-btn" onClick={() => increaseCount()}><img src={up} alt="upvote" style={singleQuestion.votes.some(obj => { return (obj.uid === loginUser.id && obj.vote === 1) }) ? { borderColor: "rgb(238 50 26 / 52%)", borderStyle: "solid" } : null} /></button><br />
               <span>
                 {
                   (singleQuestion.votes.length > 0) ?

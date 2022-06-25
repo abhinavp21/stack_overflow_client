@@ -27,7 +27,7 @@ function About() {
         <Sidebar />
         <div className="about">
             <h2>About Us</h2>
-            <p>This site is built by Abhinav, a student of GGSIPU. Due to the pandemic, students were not able to interact much with their classmates and seniors.Due to this doubt resolution became difficult.This is a website whhere students can ask their doubts after logging in and get answers to their questions.Students can also answer to other's questions.</p>
+            <p>This is a stack-overflow clone named Companion. It was built by Abhinav, a student of GGSIPU as a project.</p>
         </div>
     </div >
 }

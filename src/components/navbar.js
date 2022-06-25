@@ -76,16 +76,16 @@ function Navbar() {
           <ul type="none" className="navbar-list">
             {(loginUser && loginUser.id) ?
               <li>
-                <button className="logout-btn" onClick={() => handleLogout()}>logout</button>
+                <button className="logout-btn" onClick={() => handleLogout()}>Logout</button>
               </li> : null}
             <li >
-              <a className="nav-link" href="/questions">questions</a>
+              <a className="nav-link" href="/questions">Questions</a>
             </li>
             <li >
-              <a className="nav-link" href="/questions/ask">ask</a>
+              <a className="nav-link" href="/questions/ask">Ask</a>
             </li>
             <li >
-              <a className="nav-link" href="/about">about</a>
+              <a className="nav-link" href="/about">About</a>
             </li>
           </ul>
         </div>

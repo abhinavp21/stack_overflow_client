@@ -1,6 +1,10 @@
-.navbar-container {
-  background-color: #e3f2fd;
+body{
+  background-color: #e3f2fd6d;
 }
+.navbar-container {
+  background-color: #e3f2fd6d;
+}
+/* e3f2fd */
 .navbar {
   position: sticky;
   top: 0;
@@ -310,7 +314,7 @@ h4 span {
 }
 .vote-btn {
   border: none;
-  background-color: white;
+  background-color: #e3f2fd6d;
 }
 .answer-btn {
   display: block;
@@ -385,4 +389,21 @@ h4 span {
   position: relative;
   text-align: center;
   top: 150px;
+}
+
+/* 25 June 2022 */
+.question-content a:link{
+  text-decoration: none;
+  color: #01329b;
+}
+.question-content a:visited{
+  text-decoration: none;
+  color: #0640de;
+}
+.question-content a:hover{
+  text-decoration: none;
+  color: rgb(0, 106, 255);
+}
+button.vote-btn :hover{
+  background-color: #4eb5f145;
 }

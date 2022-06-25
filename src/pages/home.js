@@ -43,7 +43,7 @@ function Home() {
           {/* <h1>to Questions</h1> */}
           <h3>Search a question by tag</h3>
           <h3>Ask a question</h3>
-          <h3>Answer other's question</h3>
+          <h3>Answer other's questions</h3>
         </div>
         <div className="div2">
           <img className="home-img" src={image} alt="" />

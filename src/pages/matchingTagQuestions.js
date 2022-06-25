@@ -37,7 +37,7 @@ function MatchingTagQuestions() {
         <div className="main">
             <Sidebar />
             {tagQuestions ? <div className="questionList">
-                <h2>All Tagged Questions</h2>
+                <h2>All Questions Tagged {tag}</h2>
                 <hr />
                 <div>
                     {tagQuestions &&
