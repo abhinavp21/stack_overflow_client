@@ -1,0 +1,109 @@
+# Query: http://localhost:5000
+# ContextLines: 1
+
+23 results - 13 files
+
+16dec\30-nov-server\server.js:
+  33  // , "Origin", "X-Requested-With", "Content-Type"
+  34: //   origin: "http://localhost:5000",
+  35  
+
+16dec\stack_overflow_client\src\protectRoutes.js:
+  24      //         method: "GET",
+  25:     //         url: "http://localhost:5000",
+  26      //         withCredentials: true
+
+16dec\stack_overflow_client\src\components\navbar.js:
+  33        method: "POST",
+  34:       url: "http://localhost:5000/logout",
+  35        withCredentials: true,
+
+16dec\stack_overflow_client\src\components\sidebar.js:
+  13        method: "GET",
+  14:       url: "http://localhost:5000",
+  15        withCredentials: true
+
+16dec\stack_overflow_client\src\pages\about.js:
+  14              method: "GET",
+  15:             url: "http://localhost:5000",
+  16              withCredentials: true
+
+16dec\stack_overflow_client\src\pages\askQuestion.js:
+  20        method: "GET",
+  21:       url: "http://localhost:5000",
+  22        withCredentials: true
+
+  42        method: "POST",
+  43:       url: "http://localhost:5000/questions/ask",
+  44        withCredentials: true,
+
+16dec\stack_overflow_client\src\pages\home.js:
+  14        method: "GET",
+  15:       url: "http://localhost:5000",
+  16        withCredentials: true
+
+16dec\stack_overflow_client\src\pages\matchingTagQuestions.js:
+  17              method: "GET",
+  18:             url: "http://localhost:5000",
+  19              withCredentials: true
+
+  29              method: "GET",
+  30:             url: `http://localhost:5000/questions/tagged/${tag}`,
+  31              withCredentials: true
+
+16dec\stack_overflow_client\src\pages\questions.js:
+  17        method: "GET",
+  18:       url: "http://localhost:5000",
+  19        withCredentials: true
+
+  27      })
+  28:     axios.get("http://localhost:5000/questions/").then((res) => {
+  29        setQuestions(res.data);
+
+16dec\stack_overflow_client\src\pages\singleQuestion.js:
+   36        method: "GET",
+   37:       url: "http://localhost:5000",
+   38        withCredentials: true
+
+   48        method: "GET",
+   49:       url: `http://localhost:5000/questions/singleQuestion/${id}`,
+   50        withCredentials: true
+
+   61          method: "POST",
+   62:         url: `http://localhost:5000/questions/votes-update/${id}`,
+   63          withCredentials: true,
+
+   75          method: "POST",
+   76:         url: `http://localhost:5000/questions/votes-update/${id}`,
+   77          withCredentials: true,
+
+   88        axios({
+   89:         url: `http://localhost:5000/questions/answer-votes-update/${id}`,
+   90          method: "POST",
+
+  100        axios({
+  101:         url: `http://localhost:5000/questions/answer-votes-update/${id}`,
+  102          method: "POST",
+
+  125        method: "POST",
+  126:       url: `http://localhost:5000/questions/add-answer/${id}`,
+  127        withCredentials: true,
+
+16dec\stack_overflow_client\src\pages\userQuestions.js:
+  17              method: "GET",
+  18:             url: "http://localhost:5000",
+  19              withCredentials: true
+
+  27          })
+  28:         axios.get(`http://localhost:5000/questions/byuser/${loginUser.id}`).then((res) => {
+  29              if (res.data.success) {
+
+16dec\stack_overflow_client\src\pages\login\login.js:
+  25              method: "POST",
+  26:             url: "http://localhost:5000/login",
+  27              withCredentials: true,
+
+16dec\stack_overflow_client\src\pages\register\register.js:
+  27                  method: "POST",
+  28:                 url: "http://localhost:5000/register",
+  29                  withCredentials: true,

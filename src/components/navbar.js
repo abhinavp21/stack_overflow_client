@@ -31,7 +31,7 @@ function Navbar() {
   function handleLogout() {
     axios({
       method: "POST",
-      url: "https://myprojects-server.herokuapp.com/logout",
+      url: "https://stack-clone.azurewebsites.net/logout",
       withCredentials: true,
     }).then(res => {
       if (res.data.success === true) {

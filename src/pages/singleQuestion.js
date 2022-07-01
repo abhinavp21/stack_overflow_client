@@ -34,7 +34,7 @@ function SingleQuestion() {
     console.log(id);
     axios({
       method: "GET",
-      url: "https://myprojects-server.herokuapp.com/",
+      url: "https://stack-clone.azurewebsites.net/",
       withCredentials: true
     }).then(res => {
       if (res.data.success) {
@@ -46,7 +46,7 @@ function SingleQuestion() {
     })
     axios({
       method: "GET",
-      url: `https://myprojects-server.herokuapp.com/questions/singleQuestion/${id}`,
+      url: `https://stack-clone.azurewebsites.net/questions/singleQuestion/${id}`,
       withCredentials: true
     }).then((res) => {
       const question = res.data
@@ -59,7 +59,7 @@ function SingleQuestion() {
     if (loginUser.id !== singleQuestion.user_id)
       axios({
         method: "POST",
-        url: `https://myprojects-server.herokuapp.com/questions/votes-update/${id}`,
+        url: `https://stack-clone.azurewebsites.net/questions/votes-update/${id}`,
         withCredentials: true,
         data: { action: "increase", userid: loginUser.id },
       }).then((res) => {
@@ -73,7 +73,7 @@ function SingleQuestion() {
     if (loginUser.id !== singleQuestion.user_id)
       axios({
         method: "POST",
-        url: `https://myprojects-server.herokuapp.com/questions/votes-update/${id}`,
+        url: `https://stack-clone.azurewebsites.net/questions/votes-update/${id}`,
         withCredentials: true,
         data: { action: "decrease", userid: loginUser.id },
       }).then((res) => {
@@ -86,7 +86,7 @@ function SingleQuestion() {
   function increaseAnswerCount(ansid) {
     if (loginUser.id !== ansid)
       axios({
-        url: `https://myprojects-server.herokuapp.com/questions/answer-votes-update/${id}`,
+        url: `https://stack-clone.azurewebsites.net/questions/answer-votes-update/${id}`,
         method: "POST",
         withCredentials: true,
         data: { action: "increase", ansid: ansid },
@@ -98,7 +98,7 @@ function SingleQuestion() {
   function decreaseAnswerCount(ansid) {
     if (loginUser.id !== ansid)
       axios({
-        url: `https://myprojects-server.herokuapp.com/questions/answer-votes-update/${id}`,
+        url: `https://stack-clone.azurewebsites.net/questions/answer-votes-update/${id}`,
         method: "POST",
         withCredentials: true,
         data: { action: "decrease", ansid: ansid },
@@ -123,7 +123,7 @@ function SingleQuestion() {
     setAnswer("")
     axios({
       method: "POST",
-      url: `https://myprojects-server.herokuapp.com/questions/add-answer/${id}`,
+      url: `https://stack-clone.azurewebsites.net/questions/add-answer/${id}`,
       withCredentials: true,
       data: newAnswerObj
     }).then(res => {

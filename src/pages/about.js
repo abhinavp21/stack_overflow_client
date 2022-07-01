@@ -12,7 +12,7 @@ function About() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "https://myprojects-server.herokuapp.com/",
+            url: "https://stack-clone.azurewebsites.net/",
             withCredentials: true
         }).then(res => {
             if (res.data.success) {

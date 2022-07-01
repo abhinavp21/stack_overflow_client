@@ -18,7 +18,7 @@ function AskQuestion() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "https://myprojects-server.herokuapp.com/",
+      url: "https://stack-clone.azurewebsites.net/",
       withCredentials: true
     }).then(res => {
       if (res.data.success) {
@@ -40,7 +40,7 @@ function AskQuestion() {
     };
     axios({
       method: "POST",
-      url: "https://myprojects-server.herokuapp.com/questions/ask",
+      url: "https://stack-clone.azurewebsites.net/questions/ask",
       withCredentials: true,
       data: newAskQuestion,
     }).then((res) => {

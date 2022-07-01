@@ -15,7 +15,7 @@ function Questions() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "https://myprojects-server.herokuapp.com/",
+      url: "https://stack-clone.azurewebsites.net/",
       withCredentials: true
     }).then(res => {
       if (res.data.success) {
@@ -25,7 +25,7 @@ function Questions() {
         history.push("/login")
       }
     })
-    axios.get("https://myprojects-server.herokuapp.com/questions/").then((res) => {
+    axios.get("https://stack-clone.azurewebsites.net/questions/").then((res) => {
       setQuestions(res.data);
     });
   }, []);

@@ -25,7 +25,7 @@ const Register = () => {
         if (name && email && password) {
             axios({
                 method: "POST",
-                url: "https://myprojects-server.herokuapp.com/register",
+                url: "https://stack-clone.azurewebsites.net/register",
                 withCredentials: true,
                 data: user
             })
