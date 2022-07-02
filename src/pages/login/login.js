@@ -23,7 +23,7 @@ function Login() {
     const login = () => {
         axios({
             method: "POST",
-            url: "https://stack-clone.azurewebsites.net/login",
+            url: "https://server-stackkkkkk.azurewebsites.net/login",
             withCredentials: true,
             data: user
         })

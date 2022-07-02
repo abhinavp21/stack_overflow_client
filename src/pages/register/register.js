@@ -25,7 +25,7 @@ const Register = () => {
         if (name && email && password) {
             axios({
                 method: "POST",
-                url: "https://stack-clone.azurewebsites.net/register",
+                url: "https://server-stackkkkkk.azurewebsites.net/register",
                 withCredentials: true,
                 data: user
             })

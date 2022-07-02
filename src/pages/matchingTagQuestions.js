@@ -15,7 +15,7 @@ function MatchingTagQuestions() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "https://stack-clone.azurewebsites.net/",
+            url: "https://server-stackkkkkk.azurewebsites.net/",
             withCredentials: true
         }).then(res => {
             if (res.data.success) {
@@ -27,7 +27,7 @@ function MatchingTagQuestions() {
         })
         axios({
             method: "GET",
-            url: `https://stack-clone.azurewebsites.net/questions/tagged/${tag}`,
+            url: `https://server-stackkkkkk.azurewebsites.net/questions/tagged/${tag}`,
             withCredentials: true
         }).then((res) => {
             setTagQuestions(res.data);

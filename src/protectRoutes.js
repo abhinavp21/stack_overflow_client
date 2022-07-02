@@ -22,7 +22,7 @@ function ProtectedHome({ component: Component, ...rest }) {
     // useEffect(() => {
     //     axios({
     //         method: "GET",
-    //         url: "https://stack-clone.azurewebsites.net/",
+    //         url: "https://server-stackkkkkk.azurewebsites.net/",
     //         withCredentials: true
     //     })
     // }, [])

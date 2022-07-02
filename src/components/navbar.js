@@ -31,7 +31,7 @@ function Navbar() {
   function handleLogout() {
     axios({
       method: "POST",
-      url: "https://stack-clone.azurewebsites.net/logout",
+      url: "https://server-stackkkkkk.azurewebsites.net/logout",
       withCredentials: true,
     }).then(res => {
       if (res.data.success === true) {

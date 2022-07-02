@@ -15,7 +15,7 @@ function UserQuestions() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "https://stack-clone.azurewebsites.net/",
+            url: "https://server-stackkkkkk.azurewebsites.net/",
             withCredentials: true
         }).then(res => {
             if (res.data.success) {
@@ -25,7 +25,7 @@ function UserQuestions() {
                 history.push("/login")
             }
         })
-        axios.get(`https://stack-clone.azurewebsites.net/questions/byuser/${loginUser.id}`).then((res) => {
+        axios.get(`https://server-stackkkkkk.azurewebsites.net/questions/byuser/${loginUser.id}`).then((res) => {
             if (res.data.success) {
                 console.log(res.data.fQuestions);
                 setUserQuestions(res.data.fQuestions);
